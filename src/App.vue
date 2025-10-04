@@ -33,7 +33,7 @@ const route = useRoute()
 const router = useRouter()
 
 const api = ref('https://pdfviewer.airmole.cn/api?url=')
-const url = ref(route.query.url || '')
+const url = ref(route.query.url || 'https://officeweb365.com/viewfile/%E4%B8%9A%E7%BB%A9%E5%85%AC%E5%B8%832013%E5%B9%B4%E7%AC%AC%E5%9B%9B%E5%AD%A3%E5%BA%A6%E5%8F%8A%E5%85%A8%E5%B9%B4%E4%B8%9A%E7%BB%A9.pdf')
 const inputUrl = ref(url.value)
 const proxiedUrl = computed(() => url.value ? api.value + encodeURIComponent(url.value) : '')
 

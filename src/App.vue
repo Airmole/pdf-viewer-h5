@@ -148,4 +148,63 @@ async function downloadPdf() {
   text-align: center;
   padding: 60px 20px;
 }
+/* 移动端适配增强 */
+.page {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.topbar {
+  padding-top: calc(6px + env(safe-area-inset-top));
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.controls {
+  flex-wrap: wrap;
+}
+
+.controls input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.viewer {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 小屏优化 */
+@media (max-width: 640px) {
+  .topbar h1 {
+    font-size: 15px;
+  }
+
+  .controls {
+    gap: 6px;
+    padding: 10px 10px;
+  }
+
+  .controls input {
+    flex: 1 1 100%;
+    width: 100%;
+    height: 40px;
+    font-size: 16px; /* 避免 iOS 触发自动缩放 */
+  }
+
+  .controls button {
+    flex: 1 1 auto;
+    height: 40px;
+    min-width: 84px;
+    padding: 0 12px;
+  }
+
+  .hint {
+    flex-basis: 100%;
+    margin-left: 0;
+    margin-top: 2px;
+    font-size: 12px;
+  }
+
+  .placeholder {
+    padding: 40px 16px;
+  }
+}
 </style>

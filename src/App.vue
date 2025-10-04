@@ -25,8 +25,8 @@
 </template>
 
 <script setup>
-import { ref, watch, computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import {computed, ref, watch} from 'vue'
+import {useRoute, useRouter} from 'vue-router'
 import PdfViewer from './components/PdfViewer.vue'
 
 const route = useRoute()
@@ -49,6 +49,17 @@ function loadFromInput() {
 async function downloadPdf() {
   try {
     if (!url.value) return
+
+    const ua = navigator.userAgent
+    // 微信浏览器
+    const isWechat = /micromessenger/i.test(ua)
+    if (isWechat) {
+      const res = await fetch(proxiedUrl.value)
+      const blob = await res.blob()
+      window.location.href = URL.createObjectURL(blob)
+      return
+    }
+
     const res = await fetch(proxiedUrl.value)
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     const blob = await res.blob()
@@ -81,7 +92,7 @@ async function downloadPdf() {
     URL.revokeObjectURL(objectUrl)
   } catch (e) {
     console.error('下载失败:', e)
-    window.location.href = url.value
+    alert('下载失败')
   }
 }
 </script>

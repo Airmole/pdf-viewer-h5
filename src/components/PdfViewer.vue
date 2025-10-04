@@ -6,11 +6,6 @@
         <span class="page-info">{{ pageNum }} / {{ numPages || '?' }}</span>
         <button @click="nextPage" :disabled="!numPages || pageNum >= numPages">下一页</button>
       </div>
-      <div class="right">
-        <button @click="zoomOut">-</button>
-        <span>{{ (scale * 100).toFixed(0) }}%</span>
-        <button @click="zoomIn">+</button>
-      </div>
     </div>
 
     <div class="canvas-wrap">
@@ -33,7 +28,7 @@ const canvasEl = ref(null)
 const pdfDocRef = shallowRef(null)
 const pageNum = ref(1)
 const numPages = ref(null)
-const scale = ref(1.25)
+const scale = ref(2)
 
 
 async function loadPdf(url) {
@@ -74,16 +69,6 @@ function prevPage() {
 function nextPage() {
   if (!numPages.value || pageNum.value >= numPages.value) return
   pageNum.value++
-  renderPage(pageNum.value)
-}
-
-function zoomIn() {
-  scale.value = Math.min(scale.value + 0.1, 3)
-  renderPage(pageNum.value)
-}
-
-function zoomOut() {
-  scale.value = Math.max(scale.value - 0.1, 0.5)
   renderPage(pageNum.value)
 }
 

@@ -54,9 +54,7 @@ async function downloadPdf() {
     // 微信浏览器
     const isWechat = /micromessenger/i.test(ua)
     if (isWechat) {
-      const res = await fetch(proxiedUrl.value)
-      const blob = await res.blob()
-      window.location.href = URL.createObjectURL(blob)
+      alert('请点击右上角「...」-> 在浏览器中打开后再点击下载！')
       return
     }
 

@@ -79,6 +79,8 @@ edgeone pages dev
 
 ### 部署到 EdgeOne Pages（可选）
 
+[![使用 EdgeOne Pages 部署](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?repository-url=https%3A%2F%2Fgithub.com%2FAirmole%2Fpdf-viewer-h5)
+
 1) 将仓库连接到 EdgeOne Pages
 2) 构建命令：`npm run build`
 3) 构建输出目录：`dist`

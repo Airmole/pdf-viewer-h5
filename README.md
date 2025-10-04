@@ -53,12 +53,10 @@ npm install
 npm run dev
 ```
 
-默认前端开发服务器在 `http://localhost:5173`（Vite 会显示实际端口）。
-
 ## 启动 API 代理（EdgeOne Pages Functions）
 
 前端默认通过以下地址请求代理：
-- `http://localhost:8088/api?url=`（见 `src/App.vue` 中 `api` 常量）
+- `https://pdfviewer.airmole.cn/api?url=` （见 `src/App.vue` 中 `api` 常量）
 
 你可以用 EdgeOne CLI 在本地运行 Pages Functions：
 
@@ -99,7 +97,7 @@ npm run preview
 1) 直接在输入框粘贴一个可公开访问的 PDF 直链，点击“加载”
 2) 或在地址栏追加 `?url=PDF直链`，示例：
    ```
-   http://localhost:5173/?url=https://example.com/sample.pdf
+   http://localhost:8080/?url=https://example.com/sample.pdf
    ```
 3) 预览区支持：
    - 上一页 / 下一页
@@ -111,7 +109,7 @@ npm run preview
 
 - 修改默认代理地址：编辑 `src/App.vue` 中的
   ```
-  const api = ref('http://localhost:8088/api?url=')
+  const api = ref('https://pdfviewer.airmole.cn/api?url=')
   ```
   建议改造为从环境变量读取，例如结合 Vite 环境变量（`import.meta.env`）与 `.env` 文件。
 

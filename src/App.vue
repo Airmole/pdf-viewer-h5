@@ -32,7 +32,7 @@ import PdfViewer from './components/PdfViewer.vue'
 const route = useRoute()
 const router = useRouter()
 
-const api = ref('http://localhost:8088/api?url=')
+const api = ref('https://pdfviewer.airmole.cn/api?url=')
 const url = ref(route.query.url || '')
 const inputUrl = ref(url.value)
 const proxiedUrl = computed(() => url.value ? api.value + encodeURIComponent(url.value) : '')

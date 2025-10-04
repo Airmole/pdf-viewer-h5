@@ -22,8 +22,8 @@
 <script setup>
 import { ref, shallowRef, onMounted, watch, onBeforeUnmount } from 'vue'
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist/build/pdf.mjs'
-import workerUrl from 'pdfjs-dist/build/pdf.worker.mjs?url'
-GlobalWorkerOptions.workerSrc = workerUrl
+import PdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?worker'
+GlobalWorkerOptions.workerPort = new PdfWorker()
 
 const props = defineProps({
   url: { type: String, required: true }

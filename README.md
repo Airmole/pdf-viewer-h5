@@ -2,6 +2,11 @@
 
 一个基于 Vue 3 + Vite + pdfjs-dist 的轻量 H5 PDF 在线预览与下载示例，支持通过地址栏参数或输入框加载任意可公开访问的 PDF 链接，并提供分页与缩放操作。项目包含一个用于绕过 CORS 的简单反向代理（EdgeOne Pages Functions）。
 
+![iShot_2025-10-04_22.10.40.png](https://r2.airmole.cn/i/2025/10/04/1bk46p-9q.png)
+
+- [在线预览](https://pdfviewer.airmole.cn/)
+- [源码](https://github.com/airmole/pdf-viewer-h5)
+
 ## 功能特性
 
 - 在线预览公开可访问的 PDF
